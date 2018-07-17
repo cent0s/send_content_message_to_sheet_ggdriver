@@ -224,23 +224,13 @@ def clear_file(file_name):
     file = open(file_name,'w')
     file.close()
     time.sleep(1)
+def get_before_subject():
+    file = open("last_message.txt", "r")
+    before_subject = file.read()
+    file.close()
+    return before_subject
 
-
-# def content_send_to_hipchat():
-
-
-
-if __name__ == '__main__':
-    list_messages = ListMessagesWithLabels(service, 'me', 'Label_26')
-    id_last_message = list_messages[0]['id']
-    current_message = GetMessage(service, 'me', id_last_message)
-    content_message = GetMessageBody(service, 'me', id_last_message)
-    reload(sys)
-    sys.setdefaultencoding('utf-8')
-    current_subject = str(current_message['payload']['headers'][38]['value'])
-    # print str(content_message)
-    update_message_content(content_message)
-    update_subject_content(current_subject)
+def edit_content_message():
     clear_file("key.txt")
     filter = open("fill_content_message.txt").read().splitlines()
     parsing = False
@@ -255,22 +245,82 @@ if __name__ == '__main__':
                 mykey.write("\n")
 
     clear_file("key_2.txt")
-    with open('key.txt') as infile, open("key_2.txt",'w') as outfile:
+    with open('key.txt') as infile, open("key_2.txt", 'w') as outfile:
         for line in infile:
             if not line.strip():
                 continue
             outfile.write(line)
 
     clear_file("key_3.txt")
-    with open('key_2.txt') as f, open("key_3.txt",'w') as outfile:
+    with open('key_2.txt') as f, open("key_3.txt", 'w') as outfile:
         outfile.write(" ".join(line.strip() for line in f))
-    file = open('key_3.txt','r+')
+    file = open('key_3.txt', 'r+')
     line = file.read()
-    print '\nERR [FX'.join(re.split('ERR\s\[FX', line))
     clear_file("key_4.txt")
-    with open('key_4.txt', 'w') as ufile:
+    if 'ERR' in line and 'WARN' not in line:
+        with open('key_4.txt', 'w') as ufile:
             # ufile.write('\n\nWARN [FX'.join(re.split('WARN\s\[FX', line)))
-        ufile.write('\n\nERR [FX'.join(re.split('ERR\s\[FX', line)))
+            ufile.write('\n\nERR [FX'.join(re.split('ERR\s\[FX', line)))
+
+    if 'WARN' in line and 'ERR' not in line:
+        with open('key_4.txt', 'w') as ufile:
+            # ufile.write('\n\nWARN [FX'.join(re.split('WARN\s\[FX', line)))
+            ufile.write('\n\nWARN [FX'.join(re.split('WARN\s\[FX', line)))
+
+    if 'ERR' in line and 'WARN' in line:
+        print 'Message content include both "WARN" and "ERR", please paste from your email !!!'
+
+def add_content_to_ggsheet():
+    sheet = gfile.open("Monitor Error").sheet1
+    content = sheet.get_all_records()
+    pp = pprint.PrettyPrinter()
+    pp.pprint(content.__len__())
+    # pp.pprint(content[964])
+    # all_cells = sheet.acell('B966').value
+    # sheet.update_cell(968,2,"ERR [FX0000001343] portalweb=1B$B$G%(%i!<$,H/@8$7$^$7$?!#=1B(B2018-07-17 10= :49:50,203, [http-nio-8087-exec-20] ERROR phn.com.nts.util.common.CommonUti= l Failed to copy full contents from '/opt/tomcat_backend/webapps/amsadmin/o= pt/tomcat/upload/6104518_GBG_20180717104950_1.pdf' to '/opt/tomcat/upload/r= kt/6104518_GBG_20180717104950_1.pdf'(/opt/tomcat_backend/logs/rktbe.log)")
+    # print(all_cells)
+    start_row = content.__len__() + 3
+    # file handle fh
+    fh = open('key_4.txt')
+    while True:
+        # read line
+        line = fh.readline()
+        sheet.update_cell(start_row, 2, line)
+        start_row = start_row + 1
+        # in python 2, print line
+        # in python 3
+        # print(line)
+        # check if line is not empty
+        if not line:
+            break
+    fh.close()
+
+
+if __name__ == '__main__':
+    list_messages = ListMessagesWithLabels(service, 'me', 'Label_26')
+    id_last_message = list_messages[0]['id']
+    current_message = GetMessage(service, 'me', id_last_message)
+    content_message = GetMessageBody(service, 'me', id_last_message)
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
+    current_subject = str(current_message['payload']['headers'][38]['value'])
+    # print str(content_message)
+    before_subject = str(get_before_subject())
+    update_message_content(content_message)
+    edit_content_message()
+    if os.stat("last_message.txt").st_size == 0:
+        print "Please give subject to last_message.txt file"
+    else:
+        if current_subject == before_subject:
+            print "We don't have new message"
+        else:
+            print "WARING...WE HAVE NEW MESSAGE IN RKT PROJECT"
+            update_subject_content(current_subject)
+            add_content_to_ggsheet()
+
+
+
+
         # print '\nERR [FX'.join(re.split('ERR\s\[FX', line))
     # clear_file("key_4.txt")
     # print '\nERR [FX'.join(re.split('ERR\s\[FX', line))

@@ -1,50 +1,16 @@
 Message Text =1B$B!'=1B(B
 
-ERR [FX0000001339] portalweb=1B$B$G%(%i!<$,H/@8$7$^$7$?!#=1B(B2018-07-17 00=
-:09:28,224, [http-nio-8089-exec-7] ERROR phn.nts.ams.fe.business.impl.Profi=
-leManagerImpl null(/opt/tomcat_mypage/logs/front.log)
+ERR [FX0000001343] portalweb=1B$B$G%(%i!<$,H/@8$7$^$7$?!#=1B(B2018-07-17 13=
+:58:33,755, [http-nio-8087-exec-19] ERROR phn.com.nts.util.common.CommonUti=
+l Failed to copy full contents from '/opt/tomcat_backend/webapps/amsadmin/o=
+pt/tomcat/upload/6104535_3FE41C6D40A54C56A900EEFD6AA01106_20180717135833_1.=
+jpeg' to '/opt/tomcat/upload/rkt/6104535_3FE41C6D40A54C56A900EEFD6AA01106_2=
+0180717135833_1.jpeg'(/opt/tomcat_backend/logs/rktbe.log)
 
-ERR [FX0000001339] portalweb=1B$B$G%(%i!<$,H/@8$7$^$7$?!#=1B(B2018-07-17 00=
-:09:28,344, [http-nio-8089-exec-7] ERROR phn.nts.ams.fe.business.impl.Profi=
-leManagerImpl null(/opt/tomcat_mypage/logs/front.log)
-
-ERR [FX0000001339] portalweb=1B$B$G%(%i!<$,H/@8$7$^$7$?!#=1B(B2018-07-17 00=
-:09:28,425, [http-nio-8089-exec-7] ERROR phn.nts.ams.fe.business.impl.Profi=
-leManagerImpl null(/opt/tomcat_mypage/logs/front.log)
-
-ERR [FX0000001339] portalweb=1B$B$G%(%i!<$,H/@8$7$^$7$?!#=1B(B2018-07-17 00=
-:09:36,834, [http-nio-8089-exec-5] ERROR phn.nts.ams.fe.business.impl.Profi=
-leManagerImpl null(/opt/tomcat_mypage/logs/front.log)
-
-ERR [FX0000001339] portalweb=1B$B$G%(%i!<$,H/@8$7$^$7$?!#=1B(B2018-07-17 00=
-:09:36,952, [http-nio-8089-exec-5] ERROR phn.nts.ams.fe.business.impl.Profi=
-leManagerImpl null(/opt/tomcat_mypage/logs/front.log)
-
-ERR [FX0000001339] portalweb=1B$B$G%(%i!<$,H/@8$7$^$7$?!#=1B(B2018-07-17 00=
-:09:37,034, [http-nio-8089-exec-5] ERROR phn.nts.ams.fe.business.impl.Profi=
-leManagerImpl null(/opt/tomcat_mypage/logs/front.log)
-
-ERR [FX0000001339] portalweb=1B$B$G%(%i!<$,H/@8$7$^$7$?!#=1B(B2018-07-17 00=
-:09:41,318, [http-nio-8089-exec-22] ERROR phn.nts.ams.fe.business.impl.Prof=
-ileManagerImpl null(/opt/tomcat_mypage/logs/front.log)
-
-ERR [FX0000001339] portalweb=1B$B$G%(%i!<$,H/@8$7$^$7$?!#=1B(B2018-07-17 00=
-:09:41,437, [http-nio-8089-exec-22] ERROR phn.nts.ams.fe.business.impl.Prof=
-ileManagerImpl null(/opt/tomcat_mypage/logs/front.log)
-
-ERR [FX0000001339] portalweb=1B$B$G%(%i!<$,H/@8$7$^$7$?!#=1B(B2018-07-17 00=
-:09:41,519, [http-nio-8089-exec-22] ERROR phn.nts.ams.fe.business.impl.Prof=
-ileManagerImpl null(/opt/tomcat_mypage/logs/front.log)
-
-ERR [FX0000001339] portalweb=1B$B$G%(%i!<$,H/@8$7$^$7$?!#=1B(B2018-07-17 00=
-:10:20,665, [http-nio-8089-exec-18] ERROR phn.nts.ams.fe.business.impl.Prof=
-ileManagerImpl null(/opt/tomcat_mypage/logs/front.log)
-
-ERR [FX0000001339] portalweb=1B$B$G%(%i!<$,H/@8$7$^$7$?!#=1B(B2018-07-17 00=
-:10:20,787, [http-nio-8089-exec-18] ERROR phn.nts.ams.fe.business.impl.Prof=
-ileManagerImpl null(/opt/tomcat_mypage/logs/front.log)
-
-ERR [FX0000001339] portalweb=1B$B$G%(%i!<$,H/@8$7$^$7$?!#=1B(B2018-07-17 00=
-:10:20,871, [http-nio-8089-exec-18] ERROR phn.nts.ams.fe.business.impl.Prof=
-ileManagerImpl null(/opt/tomcat_mypage/logs/front.log)
+ERR [FX0000001343] portalweb=1B$B$G%(%i!<$,H/@8$7$^$7$?!#=1B(B2018-07-17 14=
+:01:19,008, [http-nio-8087-exec-24] ERROR phn.com.nts.util.common.CommonUti=
+l Failed to copy full contents from '/opt/tomcat_backend/webapps/amsadmin/o=
+pt/tomcat/upload/6104535_6104535__20180717140119_1.jpg' to '/opt/tomcat/upl=
+oad/rkt/6104535_6104535__20180717140119_1.jpg'(/opt/tomcat_backend/logs/rkt=
+be.log)
 
